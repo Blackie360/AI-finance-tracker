@@ -10,6 +10,11 @@
       "StackName": "amplify-quizapp-dev-98eb4",
       "StackId": "arn:aws:cloudformation:us-west-1:590183689033:stack/amplify-quizapp-dev-98eb4/de2b8a20-6a09-11ef-92e7-0213c877645d",
       "AmplifyAppId": "dbfy040pblepm"
+    },
+    "categories": {
+      "auth": {
+        "quizappdbbd1011": {}
+      }
     }
   }
 }
