@@ -1,45 +1,9 @@
-# This schema defines the models and relationships for a pet vaccination store
-
-type Pet @model @auth(rules: [{ allow: public }]) {
+type Song @model {
   id: ID!
-  name: String!
-  species: String! # e.g. Dog, Cat, etc.
-  breed: String
-  age: Int!
-  owner: Owner @connection # Relation to the Owner model
-  vaccinations: [Vaccination] @connection(keyName: "byPet", fields: ["id"]) # One-to-many relationship with Vaccinations
+  title: String!
+  description: String!
+  filePath: String!
+  likes: Int!
+  owner: String!
+  
 }
-
-type Owner @model @auth(rules: [{ allow: public }]) {
-  id: ID!
-  name: String!
-  contact: String!
-  pets: [Pet] @connection(keyName: "byOwner", fields: ["id"]) # One-to-many relationship with pets
-}
-
-type Vaccination @model @auth(rules: [{ allow: public }]) {
-  id: ID!
-  type: String! # e.g. Rabies, Parvovirus, etc.
-  dateAdministered: AWSDateTime!
-  nextDueDate: AWSDateTime
-  pet: Pet @connection(fields: ["petID"]) # Relation to the Pet model
-  petID: ID!
-  appointment: Appointment @connection(fields: ["appointmentID"]) # Associated with an Appointment (optional)
-  appointmentID: ID
-}
-
-type Appointment @model @auth(rules: [{ allow: public }]) {
-  id: ID!
-  pet: Pet @connection(fields: ["petID"]) # Relation to the Pet model
-  petID: ID!
-  appointmentDate: AWSDateTime!
-  location: String! # Clinic location for the vaccination
-  status: AppointmentStatus! # Enum for status (Scheduled, Completed, etc.)
-}
-
-enum AppointmentStatus {
-  SCHEDULED
-  COMPLETED
-  CANCELLED
-}
-
