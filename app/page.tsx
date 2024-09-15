@@ -1,3 +1,5 @@
+import Post from "@/components/Post";
+import { onDeletePost } from "./_actions/actions";
 import { cookieBasedClient, isAuthenticated } from "./utils/amplify-utils";
 
 
@@ -9,14 +11,18 @@ export default async function Home() {
   })
   console.log('posts', posts)
   return (
-   <main className="flex flex-col items-center justify-between p-24 w-1/2 m-auto gap-4">
-    <h1>  List Of All Titles{!isSignedIn ? " (From All Users)" : ""}</h1>
-    {posts?.map(async (post,idx) => (
-      <div key={idx}>
-        <div>{post.title}</div>
-      </div>
-    ))}
-    
-   </main>
+    <main className="flex flex-col items-center justify-between p-24 w-1/2 m-auto gap-4">
+      <h1 className="text-2xl pb-10">
+        List Of All Titles{!isSignedIn ? " (From All Users)" : ""}
+      </h1>
+      {posts?.map(async (post, idx) => (
+        <Post
+          onDelete={onDeletePost}
+          post={post}
+          key={idx}
+          isSignedIn={isSignedIn}
+        />
+      ))}
+    </main>
   );
 }
