@@ -14,16 +14,20 @@ const schema = a.schema({
       owner: a
         .string()
         .authorization((allow) => [allow.owner().to(["read", "delete"])]),
-    }).authorization((allow) => [allow.guest().to(["read"]), allow.owner()]),
-    Commet: a.model({
+    })
+    .authorization((allow) => [allow.guest().to(["read"]), allow.owner()]),
+  Comment: a
+    .model({
       content: a.string().required(),
+      postId: a.id(),
       post: a.belongsTo("Post", "postId"),
       owner: a
         .string()
         .authorization((allow) => [allow.owner().to(["read", "delete"])]),
+    })
+    .authorization((allow) => [allow.guest().to(["read"]), allow.owner()]),
+});
 
-    }).authorization((allow) => [allow.guest().to(["read"]), allow.owner()]),
-  });
 
 export type Schema = ClientSchema<typeof schema>;
 
@@ -31,6 +35,7 @@ export const data = defineData({
   schema,
   authorizationModes: {
     defaultAuthorizationMode: 'iam',
+    
   },
 });
 
