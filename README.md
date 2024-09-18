@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -34,3 +35,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+=======
+## Full Stack Typesafe App AWS Amplify Gen 2 With Next 14
+
+👉 https://youtu.be/wcSMnICY-_8?si=sEzKQKHICjw7vicg 👈
+
+This is a fullstack example app using [AWS Amplify Gen 2](https://docs.amplify.aws/gen2/). If you like to follow along check out the full [video](https://www.youtube.com/watch?v=wcSMnICY-_8).
+
+To get started
+
+- npm install
+- npx amplify sandbox
+- npm run dev
+
+If you don't have an AWS account please follow the getting started instructions [here](https://docs.amplify.aws/gen2/start/account-setup/).
+
+For a full quick start guide you can check out the [docs](https://docs.amplify.aws/gen2/start/quickstart/).
+>>>>>>> e03353d (Initial commit)
