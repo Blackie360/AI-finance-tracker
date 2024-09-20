@@ -1,9 +1,5 @@
 {
   "compilerOptions": {
-<<<<<<< HEAD
-=======
-    "target": "es5",
->>>>>>> e03353d (Initial commit)
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -22,11 +18,7 @@
       }
     ],
     "paths": {
-<<<<<<< HEAD
       "@/*": ["./*"]
-=======
-      "@/*": ["./src/*"]
->>>>>>> e03353d (Initial commit)
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
