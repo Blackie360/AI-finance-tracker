@@ -38,7 +38,7 @@ This guide will help you set up the necessary environment variables for this Nex
    - Homepage URL: Your app's URL
    - Authorization callback URL: `{NEXTAUTH_URL}/api/auth/callback/github`
 4. After creating the app, you'll see the `Client ID` and `Client Secret`.
-5. Set `GITHUB_CLIENT_ID` and `GITHUB_SECRET` with these values.
+5. Set `GITHUB_CLIENT_ID` and `GITHUB_SECRET` with these values
 
 ## Google OAuth
 
