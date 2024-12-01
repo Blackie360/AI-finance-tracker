@@ -8,7 +8,7 @@ This guide will help you set up the necessary environment variables for this Nex
 2. Create a new cluster or use an existing one.
 3. In the Atlas dashboard, click on "Connect" for your cluster.
 4. Choose "Connect your application".
-5. Select "Node.js" as your driver and choose the appropriate version.
+5. Select "Node.js" as your driver  choose the appropriate version.
 6. Copy the connection string provided. It will look something like this:
    ```
    mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/<database-name>?retryWrites=true&w=majority
