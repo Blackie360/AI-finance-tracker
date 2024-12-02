@@ -22,7 +22,7 @@ This guide will help you set up the necessary environment variables for this Nex
 1. Go to [UploadThing](https://uploadthing.com/) and create an account.
 2. Create a new project in the UploadThing dashboard.
 3. In your project settings, find the `UPLOADTHING_SECRET` and `UPLOADTHING_APP_ID`.
-4. Copy these values to your `.env` file.
+4. Copy these values to your `.env` file
 
 ## NextAuth Configuration
 
