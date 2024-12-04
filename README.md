@@ -51,4 +51,4 @@ This guide will help you set up the necessary environment variables for this Nex
 7. After creating, you'll get the `Client ID` and `Client Secret`.
 8. Set `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` with these values.
 
-Remember to never commit your `.env` file to version controlAdd it to your `.gitignore` file to prevent accidental exposure of sensitive informatio
+never commit your `.env` file to version controlAdd it to your `.gitignore` file to prevent accidental exposure of sensitive informatio
