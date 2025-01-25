@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -42,8 +43,16 @@ export function Navbar() {
               </Link>
             ))}
           </div>
-          <div className="hidden sm:ml-6 sm:flex sm:items-center">
+          <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-4">
             <Button>Get Started</Button>
+            <SignedOut>
+              <SignInButton>
+                <Button variant="outline">Sign In</Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
           </div>
           <div className="flex items-center sm:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -70,6 +79,16 @@ export function Navbar() {
                     </Link>
                   ))}
                   <Button className="mt-4">Get Started</Button>
+                  <SignedOut>
+                    <SignInButton>
+                      <Button variant="outline" className="w-full">
+                        Sign In
+                      </Button>
+                    </SignInButton>
+                  </SignedOut>
+                  <SignedIn>
+                    <UserButton afterSignOutUrl="/" />
+                  </SignedIn>
                 </div>
               </SheetContent>
             </Sheet>
