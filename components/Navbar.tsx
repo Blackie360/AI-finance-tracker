@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
+import Image from "next/image"
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -25,7 +26,8 @@ export function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold text-blue-600">AI Fintech</span>
+            <Image className="text-purple-600" src="/logo.png" alt="logo" width={40} height={40} />
+            <span className="text-3xl font-bold text-purple-600" >YooBudget</span>
             </Link>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -44,11 +46,11 @@ export function Navbar() {
             ))}
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-4">
-            <Button>Get Started</Button>
+            <Button> <Link href='/dashboard'> Get Started</Link></Button>
             <SignedOut>
-              <SignInButton>
-                <Button variant="outline">Sign In</Button>
-              </SignInButton>
+              
+                <Button  variant="outline"> <Link href="/sign-in">Sign In</Link></Button>
+              
             </SignedOut>
             <SignedIn>
               <UserButton afterSignOutUrl="/" />
