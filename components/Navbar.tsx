@@ -1,24 +1,32 @@
 "use client"
 
-import { useState } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu } from "lucide-react"
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
-import Image from "next/image"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu, LayoutDashboard } from "lucide-react";
+import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from "@clerk/nextjs";
+import Image from "next/image";
 
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Solutions", href: "/solutions" },
   { name: "Pricing", href: "/pricing" },
   { name: "About", href: "/about" },
-]
+];
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+  const { isSignedIn } = useUser();
+
+  useEffect(() => {
+    if (isSignedIn) {
+      router.push("/dashboard");
+    }
+  }, [isSignedIn, router]);
 
   return (
     <nav className="border-b top-0">
@@ -26,11 +34,11 @@ export function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-            <Image className="text-purple-600" src="/logo.png" alt="logo" width={40} height={40} />
-            <span className="text-3xl font-bold text-purple-600" >YooBudget</span>
+              <Image src="/logo.png" alt="logo" width={40} height={40} />
+              <span className="text-3xl font-bold text-purple-600">YooBudget</span>
             </Link>
           </div>
-          <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+          <div className="hidden sm:flex sm:space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -45,16 +53,19 @@ export function Navbar() {
               </Link>
             ))}
           </div>
-          <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-4">
-            <Button> <Link href='/dashboard'> Get Started</Link></Button>
-            <SignedOut>
-              
-                <Button  variant="outline"> <Link href="/sign-in">Sign In</Link></Button>
-              
-            </SignedOut>
+          <div className="hidden sm:flex sm:items-center space-x-4">
             <SignedIn>
+              <Link href="/dashboard" className="flex items-center space-x-2 text-gray-700 hover:text-gray-900">
+                <LayoutDashboard className="w-5 h-5" />
+                <span>Dashboard</span>
+              </Link>
               <UserButton afterSignOutUrl="/" />
             </SignedIn>
+            <SignedOut>
+              <SignInButton>
+                <Button variant="outline">Sign In</Button>
+              </SignInButton>
+            </SignedOut>
           </div>
           <div className="flex items-center sm:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -80,17 +91,18 @@ export function Navbar() {
                       {item.name}
                     </Link>
                   ))}
-                  <Button className="mt-4">Get Started</Button>
-                  <SignedOut>
-                    <SignInButton>
-                      <Button variant="outline" className="w-full">
-                        Sign In
-                      </Button>
-                    </SignInButton>
-                  </SignedOut>
                   <SignedIn>
+                    <Link href="/dashboard" className="flex items-center space-x-2 text-gray-700 hover:text-gray-900">
+                      <LayoutDashboard className="w-5 h-5" />
+                      <span>Dashboard</span>
+                    </Link>
                     <UserButton afterSignOutUrl="/" />
                   </SignedIn>
+                  <SignedOut>
+                    <SignInButton>
+                      <Button variant="outline" className="w-full">Sign In</Button>
+                    </SignInButton>
+                  </SignedOut>
                 </div>
               </SheetContent>
             </Sheet>
@@ -98,6 +110,5 @@ export function Navbar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
-
