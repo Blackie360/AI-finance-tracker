@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button";
+import HowItWorks from "@/components/HowItWorks";
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -38,6 +39,7 @@ const Hero = () => {
           Get Started
         </Button>
       </div>
+      <HowItWorks />
     </div>
   )
 }
