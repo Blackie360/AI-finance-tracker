@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button";
 import HowItWorks from "@/components/HowItWorks";
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
