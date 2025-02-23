@@ -10,7 +10,7 @@ import {
 } from "@/data/landing";
 import HeroSection from "@/components/hero";
 import Link from "next/link";
-import { Features } from "@/components/Feature";
+import Feature from "@/components/Feature";
 
 const LandingPage = () => {
   return (
@@ -35,7 +35,7 @@ const LandingPage = () => {
       </section>
 
       {/* Features Section */}
-     <Features />
+     <Feature />
 
       {/* How It Works Section */}
       <section className="py-20 bg-blue-50">
