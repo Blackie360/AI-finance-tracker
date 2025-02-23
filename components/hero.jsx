@@ -1,29 +1,15 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
-  const imageRef = useRef<HTMLImageElement | null>(null);
-
-  useEffect(() => {
-    const imageElement = imageRef.current;
-    if (!imageElement) return;
-
-    const handleScroll = () => {
-      imageElement.classList.toggle("scrolled", window.scrollY > 100);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <section className="pt-32 pb-20 px-4">
+    <section className="relative pt-32 pb-20 px-4">
       <div className="container mx-auto text-center">
+        {/* Text Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -38,6 +24,7 @@ const HeroSection = () => {
           </p>
         </motion.div>
 
+        {/* Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -53,21 +40,19 @@ const HeroSection = () => {
           <Button size="lg" variant="outline">Watch Demo</Button>
         </motion.div>
 
+        {/* Responsive Image */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.7 }}
-          className="mt-16 relative"
+          className="mt-16 relative max-w-7xl mx-auto"
         >
-          <div className="relative mx-auto max-w-6xl">
-            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary/50 to-primary opacity-75 blur-2xl" />
+          <div className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden rounded-xl shadow-2xl">
             <Image
-              ref={imageRef}
-              src="/placeholder.svg?height=720&width=1280"
-              width={1280}
-              height={720}
+              src="/landing.jpg"
+              layout="fill"
+              objectFit="cover"
               alt="Dashboard Preview"
-              className="relative rounded-xl border shadow-2xl"
               priority
             />
           </div>
