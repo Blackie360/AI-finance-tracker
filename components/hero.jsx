@@ -47,15 +47,16 @@ const HeroSection = () => {
           transition={{ delay: 0.4, duration: 0.7 }}
           className="mt-16 relative max-w-7xl mx-auto"
         >
-          <div className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden rounded-xl shadow-2xl">
-            <Image
-              src="/landing.jpg"
-              layout="fill"
-              objectFit="cover"
-              alt="Dashboard Preview"
-              priority
-            />
-          </div>
+   <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] overflow-hidden rounded-xl shadow-2xl">
+  <Image
+    src="/landing.png"
+    fill
+    className="object-cover object-center"
+    alt="Dashboard Preview"
+    priority
+  />
+</div>
+
         </motion.div>
       </div>
     </section>
