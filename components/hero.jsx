@@ -2,10 +2,13 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation"; 
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
+  const router = useRouter(); 
+
   return (
     <section className="relative pt-32 pb-20 px-4">
       <div className="container mx-auto text-center">
@@ -32,13 +35,19 @@ const HeroSection = () => {
           className="mt-8 flex flex-wrap justify-center gap-4"
         >
           <Button
-            href="/dashboard"
             size="lg"
+            onClick={() => router.push("/dashboard")} 
             className="bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] transition-colors animate-shimmer hover:bg-primary/90"
           >
             Start Free Trial <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
-          <Button href="/dashboard" size="lg" variant="outline">Create Account</Button>
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={() => router.push("/dashboard")} 
+          >
+            Create Account
+          </Button>
         </motion.div>
 
         {/* Responsive Image */}
@@ -48,16 +57,15 @@ const HeroSection = () => {
           transition={{ delay: 0.4, duration: 0.7 }}
           className="mt-16 relative max-w-7xl mx-auto"
         >
-   <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] overflow-hidden rounded-xl shadow-2xl">
-  <Image
-    src="/landing.png"
-    fill
-    className="object-cover object-center"
-    alt="Dashboard Preview"
-    priority
-  />
-</div>
-
+          <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] overflow-hidden rounded-xl shadow-2xl">
+            <Image
+              src="/landing.png"
+              fill
+              className="object-cover object-center"
+              alt="Dashboard Preview"
+              priority
+            />
+          </div>
         </motion.div>
       </div>
     </section>
