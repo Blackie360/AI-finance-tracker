@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "yoobudget",
-  description: "One stop Finance Platform",
+  description: "Shop smarter with AI",
 };
 
 export default function RootLayout({ children }) {
@@ -16,14 +16,14 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en" >
         <head>
-          <link rel="icon" href="/logo-sm.png" sizes="any" />
+          <link rel="icon" href="/logo.png" sizes="any" />
         </head>
         <body className={`${inter.className}`}>
           <Header />
           <main className="min-h-screen">{children}</main>
           <Toaster richColors />
 
-          <footer className="bg-blue-50 py-12">
+          <footer className="bg-gray-100 py-12">
   <div className="container mx-auto px-4 text-center text-gray-600">
     <p className="text-lg font-semibold">© {new Date().getFullYear()} Yoobudget. All rights reserved.</p>
   </div>

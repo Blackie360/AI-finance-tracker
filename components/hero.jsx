@@ -32,12 +32,13 @@ const HeroSection = () => {
           className="mt-8 flex flex-wrap justify-center gap-4"
         >
           <Button
+            href="/dashboard"
             size="lg"
             className="bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] transition-colors animate-shimmer hover:bg-primary/90"
           >
             Start Free Trial <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
-          <Button size="lg" variant="outline">Watch Demo</Button>
+          <Button href="/dashboard" size="lg" variant="outline">Create Account</Button>
         </motion.div>
 
         {/* Responsive Image */}

@@ -1,7 +1,7 @@
 "use client";
 
 import HeroSection from "@/components/hero";
-import { Marquee } from "@/components/magicui/marquee";
+import Testimonial from "@/components/Testimonial";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { featuresData, howItWorksData, statsData } from "@/data/landing";
@@ -64,7 +64,7 @@ const LandingPage = () => {
       </section>
 
       {/* Testimonials Section */}
-     <Marquee />
+     <Testimonial />
       {/* CTA Section */}
       <section className="py-20 text-center bg-gray-100 text-gray-900">
         <h2 className="text-4xl font-bold">Ready to Get Started?</h2>
